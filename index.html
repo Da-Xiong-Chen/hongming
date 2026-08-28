@@ -1,379 +1,366 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="light">
+<html lang="zh-TW" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>弘名鋼模 — 塑膠電木鋼模專業設計製造</title>
+<title>弘名鋼模 — 精密塑膠電木鋼模設計製造</title>
 <meta name="description" content="弘名鋼模成立於1999年，位於新北市三重區，專業設計製造各式塑膠電木鋼模。品質至上，顧客第一。">
-
-<!-- Fonts: Noto Sans TC + Noto Serif TC -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="neo.css">
 </head>
 <body class="is-loading">
 
-<!-- Skip link -->
 <a href="#main" class="sr-only">跳至主要內容</a>
 
-<div id="pageLoader" class="page-loader" aria-hidden="true">
-  <div class="loader-core">
-    <div class="loader-mark" aria-hidden="true">
-      <div class="loader-ring"></div>
-      <div class="loader-bars">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<!-- ===== Preloader ===== -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-gear">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g class="gear-ring">
+          <circle cx="50" cy="50" r="34" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+          <circle cx="50" cy="50" r="26" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round"/>
+        </g>
+        <g class="gear-ring gear-ring--rev">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 14" stroke-linecap="round" opacity=".7"/>
+        </g>
+        <circle cx="50" cy="50" r="5" fill="currentColor"/>
+      </svg>
     </div>
-    <div class="loader-title">HONG MING</div>
-    <div class="loader-subtitle">歡迎光臨弘名鋼模</div>
-    <div class="loader-track" aria-hidden="true"></div>
+    <div class="loader-word">HONG&nbsp;MING</div>
+    <div class="loader-sub">精密模具 · 品質至上</div>
+    <div class="loader-bar"><i id="loaderFill"></i></div>
+    <div class="loader-pct"><span id="loaderPct">0</span><small>%</small></div>
   </div>
 </div>
 
+<!-- ===== Ambient layers ===== -->
+<div class="grain" aria-hidden="true"></div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="container-wide">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <!-- SVG Logo: gear + 弘 letterform -->
-        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-label="弘名鋼模標誌" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
-          <path d="M10 20 L10 12 L16 12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M10 16 L18 16" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-          <path d="M10 20 L10 28" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-          <path d="M22 12 L22 28 M22 12 L30 12 L30 20 L22 20 M26 20 L30 28" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <div class="logo-text">
-          <span class="logo-zh">弘名鋼模</span>
-          <span class="logo-en">HG Mold Maker</span>
-        </div>
+<!-- ===== Header ===== -->
+<header class="header" id="header">
+  <div class="shell">
+    <div class="header-row">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="38" height="38" rx="11" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+            <path d="M10 12v16M18 12v16M10 20h8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M29.2 15.4a4.5 8 0 1 0 .6 7.1V20h-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <b>弘名鋼模</b>
+          <i>HG&nbsp;MOLD&nbsp;MAKER</i>
+        </span>
       </a>
-      <nav class="site-nav" aria-label="主選單">
-        <a href="#about" class="nav-link">關於我們</a>
-        <a href="#philosophy" class="nav-link">經營理念</a>
-        <a href="#products" class="nav-link">產品介紹</a>
-        <a href="https://www.facebook.com/profile.php?id=100054313728896" class="nav-link">社群專頁</a>
-        <a href="#contact" class="nav-cta">聯絡我們</a>
+
+      <nav class="nav" aria-label="主選單" id="nav">
+        <span class="nav-pill" id="navPill" aria-hidden="true"></span>
+        <a href="#about" class="nav-link" data-spy="about">關於我們</a>
+        <a href="#philosophy" class="nav-link" data-spy="philosophy">經營理念</a>
+        <a href="#products" class="nav-link" data-spy="products">產品介紹</a>
+        <a href="https://www.facebook.com/profile.php?id=100054313728896" class="nav-link" target="_blank" rel="noopener">社群專頁</a>
       </nav>
-      <div style="display:flex;align-items:center;gap:var(--space-2);">
-        <button class="theme-toggle" data-theme-toggle aria-label="切換深淺色模式">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="mobile-menu-btn" id="menuBtn" aria-label="開啟選單" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-sm btn-glow" data-magnetic>聯絡我們</a>
+        <button class="icon-btn" id="themeBtn" aria-label="切換深淺色模式"></button>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="行動選單">
-      <a href="#about">關於我們</a>
-      <a href="#philosophy">經營理念</a>
-      <a href="#products">產品介紹</a>
-      <a href="https://www.facebook.com/profile.php?id=100054313728896" class="nav-link">社群專頁</a>
-      <a href="#contact">聯絡我們</a>
-    </nav>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="行動選單">
+    <a href="#about">關於我們</a>
+    <a href="#philosophy">經營理念</a>
+    <a href="#products">產品介紹</a>
+    <a href="https://www.facebook.com/profile.php?id=100054313728896" target="_blank" rel="noopener">社群專頁</a>
+    <a href="#contact">聯絡我們</a>
+  </nav>
 </header>
 
-<!-- Main -->
 <main id="main">
 
-  <!-- Hero -->
-  <section class="hero" aria-label="英雄區域">
-    <div class="hero-bg-pattern" aria-hidden="true"></div>
-    <div class="hero-accent-bar" aria-hidden="true"></div>
-    <div class="container-wide">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
-            成立於 1999 年 · 新北市三重區
-          </div>
-          <h1>
-            <em>精密鑄造</em><br>
-            塑膠電木鋼模<br>
-            專業設計製造
-          </h1>
-          <p class="hero-desc">
-            弘名鋼模深耕模具製造逾二十五年，以品質至上、顧客第一為核心，
-            為各行各業提供精密可靠的各式塑膠電木鋼模解決方案。
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn-primary">立即洽詢</a>
-            <a href="#products" class="btn-secondary">了解產品</a>
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--a" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--b" aria-hidden="true"></div>
+
+    <div class="shell hero-shell">
+      <div class="hero-copy">
+        <div class="tagline" data-anim="fade" style="--d:.05s">
+          <span class="dot" aria-hidden="true"></span>
+          成立於 1999 年 · 新北市三重區
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line" data-split>精密鑄造</span>
+          <span class="line grad" data-split>塑膠電木鋼模</span>
+          <span class="line" data-split>專業設計製造</span>
+        </h1>
+
+        <p class="hero-lede" data-anim="fade" style="--d:.5s">
+          弘名鋼模深耕模具製造逾二十五年，以品質至上、顧客第一為核心，
+          為各行各業提供精密可靠的各式塑膠電木鋼模解決方案。
+        </p>
+
+        <div class="hero-cta" data-anim="fade" style="--d:.6s">
+          <a href="#contact" class="btn btn-glow" data-magnetic>
+            立即洽詢
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#products" class="btn btn-ghost" data-magnetic>了解產品</a>
+        </div>
+
+        <dl class="hero-stats" data-anim="fade" style="--d:.7s">
+          <div><dt class="num" data-count="25" data-suffix="+">0</dt><dd>年製造經驗</dd></div>
+          <div><dt class="num" data-count="800" data-prefix="~" data-suffix="型">0</dt><dd>無熔絲開關規格</dd></div>
+          <div><dt class="num num-text">品質</dt><dd>至上宗旨</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" data-anim="rise" style="--d:.35s">
+        <div class="frame" data-tilt>
+          <img src="./img/3.png" alt="弘名鋼模精密模具" loading="eager" width="800" height="600">
+          <div class="frame-scan" aria-hidden="true"></div>
+          <div class="frame-hud" aria-hidden="true">
+            <span>PRECISION MOLD</span><span>EST. 1999</span>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-img-block">
-            <img
-              src="https://picsum.photos/seed/mold-factory/800/450"
-              alt="精密模具加工廠房"
-              width="800" height="450"
-              loading="eager"
-            >
-          </div>
-          <div class="hero-stats">
-            <div class="stat-card">
-              <div class="stat-number">25+</div>
-              <div class="stat-label">年製造經驗</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">品質</div>
-              <div class="stat-label">至上宗旨</div>
-            </div>
-          </div>
+        <div class="float-chip float-chip--1" aria-hidden="true">CNC · EDM</div>
+        <div class="float-chip float-chip--2" aria-hidden="true">BH / 漏電開關</div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-hint" aria-hidden="true"><span></span>SCROLL</a>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-label="合作客戶">
+    <div class="marquee-track">
+      <span>士林電機</span><span aria-hidden="true">◆</span><span>台芝電子</span><span aria-hidden="true">◆</span><span>和進電子</span><span aria-hidden="true">◆</span><span>慶同電機</span><span aria-hidden="true">◆</span><span>五菱電機</span><span aria-hidden="true">◆</span><span>華石電機</span><span aria-hidden="true">◆</span><span>林石電機</span><span aria-hidden="true">◆</span><span>亞迪電機</span><span aria-hidden="true">◆</span>
+      <span aria-hidden="true">士林電機</span><span aria-hidden="true">◆</span><span aria-hidden="true">台芝電子</span><span aria-hidden="true">◆</span><span aria-hidden="true">和進電子</span><span aria-hidden="true">◆</span><span aria-hidden="true">慶同電機</span><span aria-hidden="true">◆</span><span aria-hidden="true">五菱電機</span><span aria-hidden="true">◆</span><span aria-hidden="true">華石電機</span><span aria-hidden="true">◆</span><span aria-hidden="true">林石電機</span><span aria-hidden="true">◆</span><span aria-hidden="true">亞迪電機</span><span aria-hidden="true">◆</span>
+    </div>
+  </div>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="shell about">
+      <div class="about-media" data-anim="rise">
+        <div class="frame frame--tall" data-tilt>
+          <img src="./img/710942119_orig.jpg" alt="弘名鋼模精密製造現場" loading="lazy" width="600" height="750">
+          <div class="frame-scan" aria-hidden="true"></div>
+        </div>
+        <div class="year-badge">
+          <b data-count="1999" data-plain>0</b>
+          <span>創立年份</span>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <div class="eyebrow" data-anim="fade"><i aria-hidden="true"></i>關於弘名</div>
+        <h2 class="h2" data-anim="fade" style="--d:.06s">二十五年<br><em>堅持品質</em></h2>
+        <p data-anim="fade" style="--d:.12s">
+          弘名鋼模自 1999 年創立以來，始終以精密品質與誠信服務立足台灣模具產業。
+          我們位於新北市三重區，是一家專業的模具批發製造商，提供各式塑膠電木鋼模的客製化設計與製造服務，
+          最擅長 BH 或 BH 漏電開關及無熔絲開關 100~800 型專業設計製造。
+        </p>
+        <p data-anim="fade" style="--d:.18s">
+          我們的技術團隊擁有豐富的模具設計與加工經驗，能夠根據客戶需求，
+          從設計圖面到成品交付，提供完整的一條龍服務，確保每一件模具都達到最高標準。
+        </p>
+
+        <div class="spec-grid" data-anim="fade" style="--d:.24s">
+          <div class="spec"><span>公司名稱</span><b>弘名鋼模</b></div>
+          <div class="spec"><span>統一編號</span><b>74943379</b></div>
+          <div class="spec"><span>電話</span><b>(02) 8982-7478</b></div>
+          <div class="spec"><span>傳真</span><b>(02) 2986-4228</b></div>
+          <div class="spec spec--wide"><span>地址</span><b>241 新北市三重區仁華街 80 巷 18 號</b></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section about-section" id="about" aria-labelledby="about-title">
-    <div class="container-wide">
-      <div class="about-inner">
-        <div class="about-image-col reveal">
-          <div class="about-img-main">
-            <img
-              src="https://picsum.photos/seed/precision-mold/600/750"
-              alt="弘名鋼模精密製造現場"
-              width="600" height="750"
-              loading="lazy"
-            >
-          </div>
-          <div class="about-img-badge">
-            <div class="about-img-badge-num">1999</div>
-            <div class="about-img-badge-label">創立年份</div>
-          </div>
-        </div>
-        <div class="about-content reveal">
-          <div class="section-label">關於弘名</div>
-          <h2 class="section-title" id="about-title">二十五年<br>堅持品質</h2>
-          <p class="about-body">
-            弘名鋼模自 1999 年創立以來，始終以精密品質與誠信服務立足台灣模具產業。
-            我們位於新北市三重區，是一家專業的模具批發製造商，
-            提供各式塑膠電木鋼模的客製化設計與製造服務，最擅長BH或BH漏電開關及無熔絲開關100~800型專業設計製造。
-          </p>
-          <p class="about-body">
-            我們的技術團隊擁有豐富的模具設計與加工經驗，
-            能夠根據客戶需求，從設計圖面到成品交付，
-            提供完整的一條龍服務，確保每一件模具都達到最高標準。
-          </p>
-          <div class="about-info-grid">
-            <div class="info-item">
-              <span class="info-label">公司名稱</span>
-              <span class="info-value">弘名鋼模</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">統一編號</span>
-              <span class="info-value">74943379</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">電話</span>
-              <span class="info-value">(02) 8982-7478</span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">傳真</span>
-              <span class="info-value">(02) 2986-4228</span>
-            </div>
-            <div class="info-item" style="grid-column: span 2;">
-              <span class="info-label">地址</span>
-              <span class="info-value">241 新北市三重區仁華街 80 巷 18 號</span>
-            </div>
-          </div>
-        </div>
+  <!-- ===== Philosophy ===== -->
+  <section class="section section--alt" id="philosophy">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow" data-anim="fade"><i aria-hidden="true"></i>經營理念</div>
+        <h2 class="h2" data-anim="fade" style="--d:.06s">我們的<em>核心價值</em></h2>
       </div>
-    </div>
-  </section>
 
-  <!-- Philosophy -->
-  <section class="section" id="philosophy" aria-labelledby="phil-title">
-    <div class="container-wide">
-      <div class="section-label">經營理念</div>
-      <h2 class="section-title" id="phil-title">我們的核心價值</h2>
-      <div class="philosophy-grid">
-        <div class="philosophy-principles reveal">
-          <div class="principle-item">
-            <div class="principle-num">01</div>
-            <div class="principle-body">
+      <div class="phil">
+        <ol class="phil-list" role="list">
+          <li class="phil-item" data-anim="rise">
+            <div class="phil-num">01</div>
+            <div class="phil-body">
               <h3>以客戶滿意為永久目標</h3>
               <p>從需求確認到產品交付，全程以客戶需求為優先，確保每一次合作都讓客戶感到滿意。</p>
             </div>
-          </div>
-          <div class="principle-item">
-            <div class="principle-num">02</div>
-            <div class="principle-body">
+          </li>
+          <li class="phil-item" data-anim="rise" style="--d:.1s">
+            <div class="phil-num">02</div>
+            <div class="phil-body">
               <h3>不做不良產品，不做不良交易</h3>
               <p>嚴格把關每一道工序，絕不妥協品質；在商業往來中堅持誠信，只做對雙方都有益的生意。</p>
             </div>
-          </div>
-          <div class="principle-item">
-            <div class="principle-num">03</div>
-            <div class="principle-body">
+          </li>
+          <li class="phil-item" data-anim="rise" style="--d:.2s">
+            <div class="phil-num">03</div>
+            <div class="phil-body">
               <h3>達到永續經營之目的</h3>
               <p>以長遠的眼光經營企業，在品質、服務與創新三方面持續投入，實現與客戶共同成長的永續目標。</p>
             </div>
-          </div>
-        </div>
-        <div class="philosophy-visual reveal">
-          <div class="philosophy-quote">
-            弘名鋼模 · 品質至上 顧客第一
-          </div>
-          <div class="philosophy-meta">
-            創立超過二十五年，弘名鋼模以這句話作為所有決策的最終準則，<br>
-            如有需服務歡迎各大公司來電或親臨公司洽談。本公司服務過的國內各大公司其中包括：
-            士林電機、台芝電子、和進電子、慶同電機，五菱電機、華石電機、林石電機、亞迪電機等等。
-          </div>
-          <div>
-            <span class="est-badge">Est. 1999</span>
-          </div>
-        </div>
+          </li>
+        </ol>
+
+        <aside class="phil-card" data-anim="rise" style="--d:.15s">
+          <div class="phil-quote">品質至上<br><em>顧客第一</em></div>
+          <p>
+            創立超過二十五年，弘名鋼模以這句話作為所有決策的最終準則。
+            如有需服務歡迎各大公司來電或親臨公司洽談。
+          </p>
+          <div class="phil-badge"><span aria-hidden="true"></span>EST. 1999</div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
+  <!-- ===== Products ===== -->
+  <section class="section" id="products">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow" data-anim="fade"><i aria-hidden="true"></i>產品介紹</div>
+        <h2 class="h2" data-anim="fade" style="--d:.06s">各式<em>模具解決方案</em></h2>
+        <p class="section-lede" data-anim="fade" style="--d:.12s">提供從設計到製造的全方位模具服務，滿足各種工業製造需求。</p>
+      </div>
 
-  <!-- Products -->
-  <section class="section" id="products" aria-labelledby="prod-title">
-    <div class="container-wide">
-      <div class="section-label">產品介紹</div>
-      <h2 class="section-title" id="prod-title">各式模具解決方案</h2>
-      <p class="section-intro">提供從設計到製造的全方位模具服務，滿足各種工業製造需求。</p>
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-img">
-            <img src="./img/710942119_orig.jpg" alt="塑膠鋼模" width="600" height="450" loading="lazy">
+      <div class="cards">
+        <article class="card" data-anim="rise" data-tilt>
+          <div class="card-media">
+            <img src="./img/710942119_orig.jpg" alt="塑膠鋼模" loading="lazy" width="600" height="450">
           </div>
-          <div class="product-body">
-            <div class="product-category">塑膠模具</div>
-            <h3 class="product-title">塑膠鋼模</h3>
-            <p class="product-desc">適用於各類塑膠零件成型，精密加工，確保尺寸一致性與長效耐用性。</p>
+          <div class="card-body">
+            <span class="chip">塑膠模具</span>
+            <h3>塑膠鋼模</h3>
+            <p>適用於各類塑膠零件成型，精密加工，確保尺寸一致性與長效耐用性。</p>
           </div>
-        </div>
-        <div class="product-card reveal">
-          <div class="product-img">
-            <img src="https://picsum.photos/seed/bakelite-mold/600/450" alt="電木模具" width="600" height="450" loading="lazy">
+          <span class="card-sheen" aria-hidden="true"></span>
+        </article>
+
+        <article class="card" data-anim="rise" style="--d:.1s" data-tilt>
+          <div class="card-media">
+            <img src="https://picsum.photos/seed/bakelite-mold/600/450" alt="電木模具" loading="lazy" width="600" height="450">
           </div>
-          <div class="product-body">
-            <div class="product-category">電木模具</div>
-            <h3 class="product-title">電木鋼模</h3>
-            <p class="product-desc">採用高品質電木材料，適合高溫成型製程，耐磨損、絕緣性佳，廣泛用於電子零組件製造。</p>
+          <div class="card-body">
+            <span class="chip">電木模具</span>
+            <h3>電木鋼模</h3>
+            <p>採用高品質電木材料，適合高溫成型製程，耐磨損、絕緣性佳，廣泛用於電子零組件製造。</p>
           </div>
-        </div>
-        <div class="product-card reveal">
-          <div class="product-img">
-            <img src="./img/3.png" alt="客製化模具設計" width="600" height="450" loading="lazy">
+          <span class="card-sheen" aria-hidden="true"></span>
+        </article>
+
+        <article class="card" data-anim="rise" style="--d:.2s" data-tilt>
+          <div class="card-media">
+            <img src="./img/3.png" alt="客製化模具設計" loading="lazy" width="600" height="450">
           </div>
-          <div class="product-body">
-            <div class="product-category">客製化服務</div>
-            <h3 class="product-title">客製化模具設計</h3>
-            <p class="product-desc">依據客戶圖面或樣品進行逆向工程設計，提供完整的客製化模具開發與製造服務。</p>
+          <div class="card-body">
+            <span class="chip">客製化服務</span>
+            <h3>客製化模具設計</h3>
+            <p>依據客戶圖面或樣品進行逆向工程設計，提供完整的客製化模具開發與製造服務。</p>
           </div>
-        </div>
+          <span class="card-sheen" aria-hidden="true"></span>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-    <div class="container-wide">
-      <div class="contact-inner">
-        <div>
-          <div class="section-label">聯絡方式</div>
-          <h2 class="section-title" id="contact-title">與我們聯繫</h2>
-          <p class="section-intro">歡迎來電或親臨現場洽談，我們將以最專業的態度為您服務。</p>
-          <div class="contact-info-cards reveal">
-            <div class="contact-card">
-              <div class="contact-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="contact-card-label">地址</div>
-                <div class="contact-card-value">241 新北市三重區仁華街 80 巷 18 號</div>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <div class="contact-card-label">電話</div>
-                <div class="contact-card-value">(02) 8982-7478</div>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <div>
-                <div class="contact-card-label">傳真</div>
-                <div class="contact-card-value">(02) 2986-4228</div>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div>
-                <div class="contact-card-label">電子郵件</div>
-                <div class="contact-card-value">sp.p030760@msa.hinet.net</div>
-              </div>
-            </div>
+  <!-- ===== Contact ===== -->
+  <section class="section section--alt" id="contact">
+    <div class="shell contact">
+      <div class="contact-copy">
+        <div class="eyebrow" data-anim="fade"><i aria-hidden="true"></i>聯絡方式</div>
+        <h2 class="h2" data-anim="fade" style="--d:.06s">與我們<em>聯繫</em></h2>
+        <p class="section-lede" data-anim="fade" style="--d:.12s">歡迎來電或親臨現場洽談，我們將以最專業的態度為您服務。</p>
+
+        <div class="contact-list">
+          <a class="contact-item" href="https://maps.google.com/?q=241新北市三重區仁華街80巷18號" target="_blank" rel="noopener" data-anim="rise">
+            <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><small>地址</small><b>241 新北市三重區仁華街 80 巷 18 號</b></span>
+          </a>
+          <a class="contact-item" href="tel:0289827478" data-anim="rise" style="--d:.06s">
+            <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><small>電話</small><b>(02) 8982-7478</b></span>
+          </a>
+          <div class="contact-item" data-anim="rise" style="--d:.12s">
+            <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+            <span><small>傳真</small><b>(02) 2986-4228</b></span>
           </div>
+          <a class="contact-item" href="mailto:sp.p030760@msa.hinet.net" data-anim="rise" style="--d:.18s">
+            <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+            <span><small>電子郵件</small><b>sp.p030760@msa.hinet.net</b></span>
+          </a>
         </div>
-        <div class="reveal">
-          <div class="map-placeholder">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d379.8266306687975!2d121.48455958895305!3d25.083567083479103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8dfa5d1e77f%3A0x6b60bb2b676749c0!2z5byY5ZCN6Yu85qih5LyB5qWt56S-KOWhkeiGoOmLvOaooeijvemAoOWFrOWPuCk!5e0!3m2!1szh-TW!2sus!4v1774773934150!5m2!1szh-TW!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
+      </div>
+
+      <div class="map" data-anim="rise" style="--d:.1s">
+        <iframe title="弘名鋼模位置地圖" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d379.8266306687975!2d121.48455958895305!3d25.083567083479103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8dfa5d1e77f%3A0x6b60bb2b676749c0!2z5byY5ZCN6Yu85qih5LyB5qWt56S-KOWhkeiGoOmLvOaooeijvemAoOWFrOWPuCk!5e0!3m2!1szh-TW!2sus!4v1774773934150!5m2!1szh-TW!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container-wide">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="footer-logo-zh">弘名鋼模</div>
-          <div class="footer-logo-en">HG Mold Maker Co.</div>
-          <p class="footer-tagline">品質至上 · 顧客第一<br>塑膠電木鋼模專業設計製造</p>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">弘名鋼模</div>
+        <div class="footer-en">HG MOLD MAKER CO.</div>
+        <p class="footer-tag">品質至上 · 顧客第一<br>塑膠電木鋼模專業設計製造</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>頁面導覽</h4>
+          <ul role="list">
+            <li><a href="#about">關於弘名</a></li>
+            <li><a href="#philosophy">經營理念</a></li>
+            <li><a href="#products">產品介紹</a></li>
+            <li><a href="#contact">聯絡方式</a></li>
+          </ul>
         </div>
-        <div class="footer-links">
-          <div class="footer-link-group">
-            <div class="footer-link-group-title">頁面導覽</div>
-            <ul class="footer-link-list" role="list">
-              <li><a href="#about">關於弘名</a></li>
-              <li><a href="#products">產品介紹</a></li>
-              <li><a href="#philosophy">經營理念</a></li>
-              <li><a href="#contact">聯絡方式</a></li>
-            </ul>
-          </div>
-          <div class="footer-link-group">
-            <div class="footer-link-group-title">聯絡資訊</div>
-            <ul class="footer-link-list" role="list">
-              <li><a href="tel:0289827478">電話：(02) 8982-7478</a></li>
-              <li><a href="#">傳真：(02) 2986-4228</a></li>
-              <li><a href="#">新北市三重區仁華街80巷18號</a></li>
-            </ul>
-          </div>
+        <div>
+          <h4>聯絡資訊</h4>
+          <ul role="list">
+            <li><a href="tel:0289827478">電話：(02) 8982-7478</a></li>
+            <li><span>傳真：(02) 2986-4228</span></li>
+            <li><a href="mailto:sp.p030760@msa.hinet.net">sp.p030760@msa.hinet.net</a></li>
+            <li><span>新北市三重區仁華街 80 巷 18 號</span></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">© 2024 弘名鋼模. All rights reserved.</div>
-        <div class="footer-tax">統一編號：74943379</div>
-      </div>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">HONG MING</div>
+    <div class="footer-bottom">
+      <span>© 2024 弘名鋼模. All rights reserved.</span>
+      <span>統一編號：74943379</span>
     </div>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<a href="#top" class="to-top" id="toTop" aria-label="回到頂端">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</a>
+
+<script src="neo.js"></script>
 </body>
 </html>
