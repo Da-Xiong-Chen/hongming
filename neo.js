@@ -65,9 +65,9 @@
     const btn = $('#themeBtn'), root = document.documentElement;
     const sun  = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.2M12 20.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M1.5 12h2.2M20.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>';
     const moon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>';
-    // 淺色為預設：手機是主要瀏覽情境，深色在戶外幾乎看不清
-    let mode = 'light';
-    try { mode = localStorage.getItem('hm-theme') === 'dark' ? 'dark' : 'light'; } catch (e) {}
+    // 深色為品牌預設；小字對比已提升至 WCAG AA
+    let mode = 'dark';
+    try { mode = localStorage.getItem('hm-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
     const meta = document.querySelector('meta[name="theme-color"]');
     const apply = () => {
       root.setAttribute('data-theme', mode);
