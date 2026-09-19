@@ -51,10 +51,13 @@
       el.appendChild(s);
     });
   });
+  const gradLine = $('.hero-title .grad');
+  if (gradLine) gradLine.style.animationPlayState = 'paused';
   function startHeadline() {
     if (headlineReady) return;
     headlineReady = true;
     $$('.hero-title .ch').forEach(s => { s.style.animationPlayState = 'running'; });
+    if (gradLine) gradLine.style.animationPlayState = 'running';
   }
 
   /* ---------- Theme toggle ---------- */
@@ -62,10 +65,13 @@
     const btn = $('#themeBtn'), root = document.documentElement;
     const sun  = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.2M12 20.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M1.5 12h2.2M20.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>';
     const moon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>';
-    let mode = 'dark';
-    try { mode = localStorage.getItem('hm-theme') || 'dark'; } catch (e) {}
+    // 淺色為預設：手機是主要瀏覽情境，深色在戶外幾乎看不清
+    let mode = 'light';
+    try { mode = localStorage.getItem('hm-theme') === 'dark' ? 'dark' : 'light'; } catch (e) {}
+    const meta = document.querySelector('meta[name="theme-color"]');
     const apply = () => {
       root.setAttribute('data-theme', mode);
+      if (meta) meta.setAttribute('content', mode === 'dark' ? '#0d1117' : '#f4f6f9');
       if (btn) {
         btn.innerHTML = mode === 'dark' ? sun : moon;
         btn.setAttribute('aria-label', '切換至' + (mode === 'dark' ? '淺色' : '深色') + '模式');
@@ -254,8 +260,8 @@
     const draw = () => {
       raf = requestAnimationFrame(draw);
       if (!visible) return;
-      const light = document.documentElement.getAttribute('data-theme') === 'light';
-      const rgb = light ? '28,114,173' : '120,196,245';
+      const light = document.documentElement.getAttribute('data-theme') !== 'dark';
+      const rgb = light ? '21,98,143' : '120,196,245';
       ctx.clearRect(0, 0, w, h);
 
       for (const p of pts) {

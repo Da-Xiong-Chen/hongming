@@ -3,31 +3,36 @@
    Dark-first industrial / precision-tech visual system
    ========================================================= */
 
-/* ===== Tokens ===== */
-:root, [data-theme="dark"] {
-  --bg:            #07090c;
-  --bg-2:          #0b0e13;
-  --surface:       rgba(255,255,255,.035);
-  --surface-2:     rgba(255,255,255,.06);
-  --line:          rgba(255,255,255,.10);
-  --line-strong:   rgba(255,255,255,.20);
+/* ===== Tokens =====
+   淺色為預設（手機主要瀏覽情境），深色為 opt-in 覆蓋。
+   文字色皆通過 WCAG AA（小字 ≥ 4.5:1）。 */
+:root, [data-theme="light"] {
+  color-scheme: light;
 
-  --text:          #e8ecf2;
-  --muted:         #99a3b2;
-  --faint:         #5b6675;
+  --bg:            #f4f6f9;
+  --bg-2:          #ffffff;
+  --surface:       rgba(15,23,36,.04);
+  --surface-2:     rgba(255,255,255,.92);
+  --line:          rgba(15,23,36,.14);
+  --line-strong:   rgba(15,23,36,.26);
 
-  --steel:         #59b6f0;   /* precision blue */
-  --steel-soft:    #a9dcff;
-  --copper:        #ff9147;   /* warm accent */
-  --copper-soft:   #ffc79b;
+  --text:          #0f1720;   /* 15.9:1 */
+  --muted:         #4d5868;   /*  6.4:1 */
+  --faint:         #5f6b7a;   /*  4.8:1 */
 
-  --grad: linear-gradient(100deg, var(--steel-soft) 0%, var(--steel) 34%, #b48cff 62%, var(--copper) 100%);
-  --glow-steel: 0 0 0 1px rgba(89,182,240,.30), 0 12px 40px -12px rgba(89,182,240,.55);
-  --glow-copper: 0 0 0 1px rgba(255,145,71,.30), 0 12px 40px -12px rgba(255,145,71,.5);
+  --steel:         #15628f;   /*  5.8:1 — precision blue */
+  --steel-soft:    #2f93d6;
+  --copper:        #b4560f;   /* warm accent */
+  --copper-soft:   #d97a2e;
 
-  --shadow-1: 0 2px 10px rgba(0,0,0,.35);
-  --shadow-2: 0 18px 50px -18px rgba(0,0,0,.75);
-  --shadow-3: 0 40px 90px -30px rgba(0,0,0,.85);
+  /* 白字在此漸層上 ≥ 4.6:1 */
+  --grad: linear-gradient(100deg, #1f7ab5 0%, #15628f 36%, #4a35b0 64%, #9c4a0d 100%);
+  --glow-steel:  0 0 0 1px rgba(21,98,143,.22), 0 14px 40px -16px rgba(21,98,143,.45);
+  --glow-copper: 0 0 0 1px rgba(180,86,15,.22), 0 14px 40px -16px rgba(180,86,15,.40);
+
+  --shadow-1: 0 2px 10px rgba(16,24,38,.08);
+  --shadow-2: 0 18px 46px -20px rgba(16,24,38,.26);
+  --shadow-3: 0 40px 90px -34px rgba(16,24,38,.32);
 
   --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 30px; --r-full: 999px;
 
@@ -39,35 +44,43 @@
   --font-zh: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
   --font-display: 'Noto Serif TC', 'Songti TC', serif;
 
-  --t-xs: clamp(.72rem,.68rem + .2vw,.82rem);
-  --t-sm: clamp(.84rem,.8rem + .25vw,.95rem);
-  --t-base: clamp(.98rem,.94rem + .25vw,1.08rem);
+  /* 手機端最小值調高，小螢幕不再出現 11px 級的標籤字 */
+  --t-xs: clamp(.75rem,.71rem + .2vw,.84rem);
+  --t-sm: clamp(.88rem,.84rem + .25vw,.97rem);
+  --t-base: clamp(1rem,.96rem + .25vw,1.1rem);
   --t-lg: clamp(1.15rem,1rem + .7vw,1.45rem);
   --t-h3: clamp(1.2rem,1.02rem + .8vw,1.55rem);
-  --t-h2: clamp(2rem,1.35rem + 2.6vw,3.6rem);
-  --t-h1: clamp(2.5rem,1.4rem + 4.6vw,5.4rem);
+  --t-h2: clamp(1.95rem,1.35rem + 2.6vw,3.6rem);
+  --t-h1: clamp(2.35rem,1.4rem + 4.6vw,5.4rem);
 }
 
-[data-theme="light"] {
-  --bg:            #eef1f5;
-  --bg-2:          #f7f9fc;
-  --surface:       rgba(12,20,32,.035);
-  --surface-2:     rgba(255,255,255,.85);
-  --line:          rgba(12,20,32,.12);
-  --line-strong:   rgba(12,20,32,.22);
-  --text:          #10151d;
-  --muted:         #55606f;
-  --faint:         #8b95a3;
-  --steel:         #1c72ad;
-  --steel-soft:    #2f93d6;
-  --copper:        #c85e14;
-  --copper-soft:   #e08033;
-  --grad: linear-gradient(100deg, #2f93d6 0%, #1c72ad 36%, #6b4fd8 64%, #c85e14 100%);
-  --glow-steel: 0 0 0 1px rgba(28,114,173,.22), 0 14px 40px -16px rgba(28,114,173,.45);
-  --glow-copper: 0 0 0 1px rgba(200,94,20,.22), 0 14px 40px -16px rgba(200,94,20,.4);
-  --shadow-1: 0 2px 10px rgba(16,24,38,.08);
-  --shadow-2: 0 18px 46px -20px rgba(16,24,38,.28);
-  --shadow-3: 0 40px 90px -34px rgba(16,24,38,.35);
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* 提亮底色：原 #07090c 近純黑，小字對比僅 3.4:1 */
+  --bg:            #0d1117;
+  --bg-2:          #121924;
+  --surface:       rgba(255,255,255,.05);
+  --surface-2:     rgba(255,255,255,.08);
+  --line:          rgba(255,255,255,.13);
+  --line-strong:   rgba(255,255,255,.24);
+
+  --text:          #e9edf3;   /* 14.8:1 */
+  --muted:         #a3adbb;   /*  8.3:1 */
+  --faint:         #7a8696;   /*  5.1:1 — 原 #5b6675 只有 3.4:1 */
+
+  --steel:         #59b6f0;
+  --steel-soft:    #a9dcff;
+  --copper:        #ff9147;
+  --copper-soft:   #ffc79b;
+
+  --grad: linear-gradient(100deg, var(--steel-soft) 0%, var(--steel) 34%, #b48cff 62%, var(--copper) 100%);
+  --glow-steel:  0 0 0 1px rgba(89,182,240,.30), 0 12px 40px -12px rgba(89,182,240,.55);
+  --glow-copper: 0 0 0 1px rgba(255,145,71,.30), 0 12px 40px -12px rgba(255,145,71,.50);
+
+  --shadow-1: 0 1px 3px rgba(0,0,0,.35);
+  --shadow-2: 0 18px 50px -18px rgba(0,0,0,.70);
+  --shadow-3: 0 40px 90px -30px rgba(0,0,0,.80);
 }
 
 /* ===== Base ===== */
@@ -131,17 +144,17 @@ p { text-wrap: pretty; }
 
 /* ===== Ambient layers ===== */
 .grain {
-  position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: .30; mix-blend-mode: overlay;
+  position: fixed; inset: 0; z-index: 400; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
-[data-theme="light"] .grain { opacity: .16; }
+[data-theme="dark"] .grain { opacity: .30; }
 
 .spotlight {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 25%), rgba(89,182,240,.14), transparent 62%);
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 25%), rgba(21,98,143,.10), transparent 62%);
   transition: opacity .4s;
 }
-[data-theme="light"] .spotlight { background: radial-gradient(340px circle at var(--mx,50%) var(--my,25%), rgba(28,114,173,.12), transparent 62%); }
+[data-theme="dark"] .spotlight { background: radial-gradient(360px circle at var(--mx,50%) var(--my,25%), rgba(89,182,240,.14), transparent 62%); }
 
 .scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 300; background: transparent; }
 .scroll-progress i { display: block; height: 100%; width: 0%; background: var(--grad); box-shadow: 0 0 12px rgba(89,182,240,.7); }
@@ -213,7 +226,8 @@ p { text-wrap: pretty; }
   transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s, color .35s, border-color .35s;
 }
 .btn-sm { padding: .55rem 1.1rem; font-size: var(--t-xs); }
-.btn-glow { background: var(--grad); background-size: 200% 100%; color: #05080d; box-shadow: var(--glow-steel); font-weight: 700; }
+.btn-glow { background: var(--grad); background-size: 200% 100%; color: #fff; box-shadow: var(--glow-steel); font-weight: 700; }
+[data-theme="dark"] .btn-glow { color: #05080d; }  /* 深色主題的漸層是亮色，需反轉字色 */
 .btn-glow:hover { background-position: 100% 0; box-shadow: 0 0 0 1px rgba(89,182,240,.5), 0 20px 50px -14px rgba(89,182,240,.7); }
 .btn-glow svg { transition: transform .35s var(--ease); }
 .btn-glow:hover svg { transform: translateX(4px); }
@@ -239,8 +253,10 @@ p { text-wrap: pretty; }
 }
 @keyframes gridDrift { to { background-position: 74px 74px, 74px 74px; } }
 .hero-orb { position: absolute; z-index: -5; border-radius: 50%; filter: blur(90px); opacity: .55; }
-.hero-orb--a { width: 44vw; height: 44vw; max-width: 620px; max-height: 620px; top: -14%; right: -8%; background: radial-gradient(circle, rgba(89,182,240,.55), transparent 66%); animation: float1 16s ease-in-out infinite; }
-.hero-orb--b { width: 36vw; height: 36vw; max-width: 480px; max-height: 480px; bottom: -18%; left: -10%; background: radial-gradient(circle, rgba(255,145,71,.42), transparent 66%); animation: float2 20s ease-in-out infinite; }
+.hero-orb--a { width: 44vw; height: 44vw; max-width: 620px; max-height: 620px; top: -14%; right: -8%; background: radial-gradient(circle, rgba(47,147,214,.34), transparent 66%); animation: float1 16s ease-in-out infinite; }
+.hero-orb--b { width: 36vw; height: 36vw; max-width: 480px; max-height: 480px; bottom: -18%; left: -10%; background: radial-gradient(circle, rgba(217,122,46,.26), transparent 66%); animation: float2 20s ease-in-out infinite; }
+[data-theme="dark"] .hero-orb--a { background: radial-gradient(circle, rgba(89,182,240,.55), transparent 66%); }
+[data-theme="dark"] .hero-orb--b { background: radial-gradient(circle, rgba(255,145,71,.42), transparent 66%); }
 @keyframes float1 { 50% { transform: translate3d(-4%, 6%, 0) scale(1.08); } }
 @keyframes float2 { 50% { transform: translate3d(6%, -5%, 0) scale(1.12); } }
 
@@ -263,7 +279,15 @@ p { text-wrap: pretty; }
   font-size: var(--t-h1); font-weight: 900; letter-spacing: .01em; line-height: 1.08;
 }
 .hero-title .line { display: block; }
-.hero-title .grad { background: var(--grad); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 7s linear infinite; }
+/* 整行一起進場，不拆字 —— background-clip:text 的漸層無法穿透帶 transform 的
+   inline-block 子元素，拆成 .ch 會讓整行變成看不見的透明字 */
+.hero-title .grad {
+  background: var(--grad); background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  opacity: 0; transform: translateY(.45em);
+  animation: lineIn .85s var(--ease) .18s forwards, shimmer 7s linear infinite;
+}
+@keyframes lineIn { to { opacity: 1; transform: none; } }
 @keyframes shimmer { to { background-position: 220% 0; } }
 .hero-title .ch { display: inline-block; opacity: 0; transform: translateY(.7em) rotateX(-55deg); transform-origin: 50% 100%; animation: chIn .8s var(--ease) forwards; animation-delay: var(--cd, 0s); }
 @keyframes chIn { to { opacity: 1; transform: none; } }
@@ -287,6 +311,10 @@ p { text-wrap: pretty; }
 }
 .frame::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(160deg, rgba(47,147,214,.10), transparent 45%, rgba(217,122,46,.08));
+}
+/* screen 混色在淺色底會把照片洗白，只用於深色主題 */
+[data-theme="dark"] .frame::after {
   background: linear-gradient(160deg, rgba(89,182,240,.18), transparent 42%, rgba(255,145,71,.14));
   mix-blend-mode: screen;
 }
@@ -304,10 +332,10 @@ p { text-wrap: pretty; }
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; justify-content: space-between; gap: 1rem;
   padding: .7rem 1rem;
-  font-family: var(--font-en); font-size: .6rem; letter-spacing: .22em; color: var(--steel-soft);
+  font-family: var(--font-en); font-size: .62rem; letter-spacing: .22em; color: #fff;
   background: linear-gradient(0deg, rgba(4,7,11,.8), transparent);
 }
-[data-theme="light"] .frame-hud { color: #fff; }
+[data-theme="dark"] .frame-hud { color: var(--steel-soft); }
 
 .float-chip {
   position: absolute; padding: .5rem .9rem; border-radius: var(--r-full);
@@ -341,7 +369,8 @@ p { text-wrap: pretty; }
 .marquee-track { display: flex; align-items: center; gap: 2.2rem; width: max-content; animation: slide 34s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-track span { font-size: var(--t-sm); letter-spacing: .14em; color: var(--muted); white-space: nowrap; }
-.marquee-track span[aria-hidden="true"]:not(:first-child) { color: var(--steel); font-size: .5rem; }
+/* 只針對分隔符 — 舊的 [aria-hidden] 選擇器會把複製那half的客戶名也縮成 8px */
+.marquee-track .sep { color: var(--steel); font-size: .55rem; }
 @keyframes slide { to { transform: translateX(-50%); } }
 
 /* ===== Sections ===== */
@@ -435,11 +464,11 @@ p { text-wrap: pretty; }
 .card-body p { margin-top: .6rem; color: var(--muted); font-size: var(--t-sm); font-weight: 300; }
 .card-sheen {
   position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
-  background: radial-gradient(240px circle at var(--px, 50%) var(--py, 50%), rgba(255,255,255,.16), transparent 60%);
+  background: radial-gradient(240px circle at var(--px, 50%) var(--py, 50%), rgba(21,98,143,.12), transparent 60%);
   transition: opacity .4s;
 }
 .card:hover .card-sheen { opacity: 1; }
-[data-theme="light"] .card-sheen { background: radial-gradient(240px circle at var(--px,50%) var(--py,50%), rgba(28,114,173,.14), transparent 60%); }
+[data-theme="dark"] .card-sheen { background: radial-gradient(240px circle at var(--px,50%) var(--py,50%), rgba(255,255,255,.16), transparent 60%); }
 
 /* ===== Contact ===== */
 .contact { display: grid; gap: clamp(2.5rem, 6vw, 4rem); align-items: center; }
@@ -505,11 +534,76 @@ a.contact-item:hover { border-color: var(--steel); transform: translateY(-3px); 
 [data-anim="rise"] { transform: translateY(46px) scale(.97); filter: blur(6px); }
 [data-anim].in { opacity: 1; transform: none; filter: none; }
 
+/* =========================================================
+   手機調校 (< 768px)
+   1. 壓低裝飾層 — 是「太暗／太糊」的主因，也最耗效能
+   2. 觸控目標 ≥ 44px
+   3. 縮小 blur 半徑 — backdrop-filter 在手機 GPU 上很貴
+   ========================================================= */
+@media (max-width: 767px) {
+  .grain { opacity: .08; }
+  [data-theme="dark"] .grain { opacity: .18; }
+  .hero-orb { filter: blur(60px); opacity: .34; }
+  .hero-canvas { opacity: .42; }
+  .hero-grid { background-size: 56px 56px; }
+
+  .hero { padding-block: 2.25rem 3.25rem; }
+  .section { padding-block: clamp(3.25rem, 9vh, 5rem); }
+
+  /* 觸控目標 */
+  .icon-btn { width: 44px; height: 44px; }
+  .mobile-nav a { padding-block: 1.05rem; }
+  .contact-item { padding: 1.05rem 1.1rem; }
+  .nav-link { padding: .65rem 1rem; }
+
+  /* blur 減半 */
+  .header.stuck, .mobile-nav { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .float-chip, .year-badge, .to-top, .tagline { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+  .hero-title { margin-top: 1.15rem; }
+  .hero-lede { margin-top: 1.15rem; line-height: 1.8; }
+  .hero-cta { margin-top: 1.6rem; }
+  .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+
+  .hero-stats { margin-top: 2rem; padding-top: 1.25rem; gap: .5rem; }
+  .hero-stats .num { font-size: 1.5rem; }
+  .hero-stats dd { margin-top: .35rem; letter-spacing: .06em; }
+
+  .float-chip { font-size: .62rem; padding: .4rem .7rem; }
+  .float-chip--1 { left: 0; }
+  .float-chip--2 { right: 0; }
+
+  .year-badge { right: 0; bottom: -1rem; padding: .85rem 1.1rem; }
+  .year-badge b { font-size: 1.5rem; }
+
+  .phil-item { gap: 1rem; padding: 1.3rem 1.15rem; }
+  .phil-num { font-size: 1.7rem; }
+  .phil-item:hover { transform: none; }   /* 觸控裝置沒有 hover，避免點擊後卡住位移 */
+
+  .spec { padding: .9rem 1.05rem; }
+  .map iframe { height: 300px; }
+
+  /* 小字下限：9px 級的英文標籤在手機上讀不了 */
+  .brand-text i { font-size: .66rem; }
+  .footer-en { font-size: .68rem; }
+  .float-chip { font-size: .66rem; }
+  .frame-hud { font-size: .66rem; }
+
+  /* 頁尾連結原本只有 21px 高，撐不到可點擊的尺寸 */
+  .footer-cols a { display: inline-block; padding-block: .5rem; }
+  .footer-cols ul { gap: .2rem; }
+
+  .to-top { right: .9rem; bottom: .9rem; width: 44px; height: 44px; }
+  .footer-wordmark { margin-top: 2.25rem; }
+  .footer-bottom { font-size: var(--t-xs); }
+}
+
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   [data-anim] { opacity: 1 !important; transform: none !important; filter: none !important; }
   .hero-title .ch { opacity: 1; transform: none; }
+  .hero-title .grad { opacity: 1 !important; transform: none !important; }
   .marquee-track { animation: none; }
 }
